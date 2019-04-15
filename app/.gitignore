@@ -38,13 +38,13 @@ captures/
 *.idea/
 .idea/workspace.xml
 idea/workspace.xml
->>>>>>> 8b66cf7af64e84be730ba462024811bca330a2de
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/
 
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.
