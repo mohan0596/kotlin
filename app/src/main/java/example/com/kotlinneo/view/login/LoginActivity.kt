@@ -22,16 +22,11 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
             if(it != null){
                 Toast.makeText(this,it.message,Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this,"error",Toast.LENGTH_SHORT).show()
+                showErrorMessage("Error")
             }
 
 
         })
-
-        viewModel.getLoginResponse().observe(this,Observer<LoginResponse>(){
-
-        })
-
 
         btnLogin.setOnClickListener {
             if (viewModel.CheckValidation(txtEmail.text.toString(),txtPassword.text.toString()))
