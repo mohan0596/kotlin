@@ -37,6 +37,8 @@ captures/
 *.iml
 *.idea/
 .idea/workspace.xml
+idea/workspace.xml
+>>>>>>> 8b66cf7af64e84be730ba462024811bca330a2de
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml

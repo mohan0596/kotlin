@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">KotlinNeo</string>
+=======
+    <string name="app_name">Kotlin</string>
+>>>>>>> 8b66cf7af64e84be730ba462024811bca330a2de
 </resources>
