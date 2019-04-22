@@ -12,6 +12,7 @@ class DashboardActivity : BaseActivity<DashboardViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
+        fragmentTransaction(ADD_FRAGMENT,DashboardFragment.newInstance(),R.id.container,false)
     }
 
     companion object {
