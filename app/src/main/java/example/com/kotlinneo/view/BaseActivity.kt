@@ -1,60 +1,91 @@
 package example.com.kotlinneo.view
 
-import android.app.Activity
-import android.content.Context
+import android.app.ProgressDialog
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import example.com.kotlinneo.R
+import example.com.kotlinneo.navigator.Navigator
 import kotlinx.android.synthetic.main.activity_base.*
 
-open class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
-    val ADD_FRAGMENT = 1
-    val REPLACE_FRAGMENT = 2
+open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
+
+    var mProgressDialog: ProgressDialog? = null
+    lateinit var mNavigator: Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base)
+       // injectComponent()
+       // initViewmodel()
+        injectNavigator()
+        mNavigator = Navigator()
 
     }
 
-    fun showErrorMessage(errorMessage : String) = Toast.makeText(this,errorMessage,Toast.LENGTH_SHORT).show()
+  //  abstract fun initViewmodel()
+   // abstract fun injectComponent()
+
+    /**
+     * TODO
+     *  intialize mNavigator
+     */
+    private fun injectNavigator() {
+     //   mNavigator = ((application as UserApplication).getComponent()?.navigator())
+
+    }
+
+    /**
+     * TODO
+     * child should override for retry on API failure
+     */
+    fun retry() {
+
+    }
+
+    /**
+     * TODO
+     * set toolbar with back arrow
+     * @param title
+     */
+   /* fun setToolbar(title: String) {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        val mToolBarTitle = toolbar.findViewById<TextView>(R.id.txt_title)
+        mToolBarTitle.setText(title)
+
+    }*/
+
+    override fun setContentView(layoutResID: Int) {
+        super.setContentView(R.layout.activity_base)
+        container?.addView(LayoutInflater.from(this).inflate(layoutResID, null))
+        setFullScreenLoader()
+
+    }
+
+    fun setFullScreenLoader() {
+        mProgressDialog = ProgressDialog(this)
+        mProgressDialog?.setCancelable(false)
+    }
 
     fun showLoading() {
         progressBar.visibility = View.VISIBLE
     }
 
-    fun hideLofaing() {
+    fun hideLoading() {
         progressBar.visibility = View.GONE
     }
 
-    fun getContext() : Context {
-        return this
+    fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    fun hideKeyboard(){
-        val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        //Find the currently focused view, so we can grab the correct window token from it.
-        var view : View? = currentFocus
-        //If no view currently has focus, create a new one, just so we can grab a window token from it
-        if(view == null)
-            view = View(this)
-
-        imm.hideSoftInputFromWindow(view.windowToken,0)
-
+    fun showErrorMessage(message: String){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
     }
 
-    fun fragmentTransaction(transactionType : Int ,fragment : Fragment, container : Int, addtoBackStack : Boolean){
-        val trans : FragmentTransaction = supportFragmentManager.beginTransaction()
-        when(transactionType){
-            0 -> trans.add(container,fragment,fragment::class.simpleName.toString())
-            1 -> trans.replace(container,fragment,fragment::class.simpleName.toString())
-        }
-        trans.commit()
-    }
 
 }
