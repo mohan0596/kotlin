@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
+import example.com.kotlinneo.App
 import example.com.kotlinneo.R
 import example.com.kotlinneo.navigator.Navigator
 import kotlinx.android.synthetic.main.activity_base.*
@@ -36,7 +37,7 @@ open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
      *  intialize mNavigator
      */
     private fun injectNavigator() {
-     //   mNavigator = ((application as UserApplication).getComponent()?.navigator())
+       mNavigator = ((application as App).getApplicationComponent()!!.navigator())
 
     }
 
