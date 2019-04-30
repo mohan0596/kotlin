@@ -22,24 +22,10 @@ open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // injectComponent()
-       // initViewmodel()
-        injectNavigator()
         mNavigator = Navigator()
 
     }
 
-  //  abstract fun initViewmodel()
-   // abstract fun injectComponent()
-
-    /**
-     * TODO
-     *  intialize mNavigator
-     */
-    private fun injectNavigator() {
-       mNavigator = ((application as App).getApplicationComponent()!!.navigator())
-
-    }
 
     /**
      * TODO
@@ -54,7 +40,7 @@ open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
      * set toolbar with back arrow
      * @param title
      */
-   /* fun setToolbar(title: String) {
+  /*  fun setToolbar(title: String) {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -67,7 +53,7 @@ open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
     override fun setContentView(layoutResID: Int) {
         super.setContentView(R.layout.activity_base)
         container?.addView(LayoutInflater.from(this).inflate(layoutResID, null))
-        setFullScreenLoader()
+        //setFullScreenLoader()
 
     }
 

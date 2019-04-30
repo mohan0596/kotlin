@@ -29,9 +29,9 @@ class LoginActivity : BaseActivity<LoginViewModel>() {
             if(it != null){
                 hideLoading()
                 mNavigator.navigateToDashboard(this)
+                finish()
                 Toast.makeText(this,it.data?.firstName,Toast.LENGTH_SHORT).show()
             }else{
-                mNavigator.navigateToDashboard(this)
                 showErrorMessage("Error")
                 hideLoading()
             }

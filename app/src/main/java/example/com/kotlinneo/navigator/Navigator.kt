@@ -7,16 +7,14 @@ import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import example.com.kotlinneo.view.dashboard.DashboardActivity
 import example.com.kotlinneo.view.dashboard.DashboardFragment
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Created by Nishant on 22-Apr-19.
  */
-@Singleton
-class Navigator @Inject constructor() {
+class Navigator {
     fun navigateToDashboard(context: Context) {
         val intent: Intent = DashboardActivity.getCallingIntent(context)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
     }
 
