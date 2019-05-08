@@ -10,4 +10,4 @@
 .externalNativeBuild
 libs/
 .idea
-.bat
+gradlew.bat
