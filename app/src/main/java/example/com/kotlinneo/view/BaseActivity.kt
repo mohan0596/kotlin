@@ -27,29 +27,6 @@ open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
     }
 
 
-    /**
-     * TODO
-     * child should override for retry on API failure
-     */
-    fun retry() {
-
-    }
-
-    /**
-     * TODO
-     * set toolbar with back arrow
-     * @param title
-     */
-  /*  fun setToolbar(title: String) {
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-
-        val mToolBarTitle = toolbar.findViewById<TextView>(R.id.txt_title)
-        mToolBarTitle.setText(title)
-
-    }*/
-
     override fun setContentView(layoutResID: Int) {
         super.setContentView(R.layout.activity_base)
         container?.addView(LayoutInflater.from(this).inflate(layoutResID, null))
