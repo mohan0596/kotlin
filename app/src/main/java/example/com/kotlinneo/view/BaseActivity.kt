@@ -13,7 +13,7 @@ import example.com.kotlinneo.R
 import example.com.kotlinneo.navigator.Navigator
 import kotlinx.android.synthetic.main.activity_base.*
 
-open abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
+open  class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     var mProgressDialog: ProgressDialog? = null
     lateinit var mNavigator: Navigator
