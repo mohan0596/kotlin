@@ -34,6 +34,7 @@ class Navigator {
         fragmentTransaction.replace(container, fragment, tag)
         if (isAddToBackStack)
             fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
 }

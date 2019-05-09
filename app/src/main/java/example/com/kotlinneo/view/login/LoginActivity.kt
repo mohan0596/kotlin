@@ -4,19 +4,13 @@ package example.com.kotlinneo.view.login
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.widget.ProgressBar
 import android.widget.Toast
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import example.com.kotlinneo.view.BaseActivity
 import example.com.kotlinneo.R
 import example.com.kotlinneo.model.LoginResponse
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_base.*
 
-class LoginActivity : BaseActivity<LoginViewModel>() {
+class LoginActivity : BaseActivity() {
 
 
     lateinit var viewModel: LoginViewModel

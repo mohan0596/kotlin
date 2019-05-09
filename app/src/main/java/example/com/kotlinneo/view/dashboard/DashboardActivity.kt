@@ -2,12 +2,11 @@ package example.com.kotlinneo.view.dashboard
 
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import example.com.kotlinneo.R
 import example.com.kotlinneo.view.BaseActivity
 
-class DashboardActivity : BaseActivity<DashboardViewModel>() {
+class DashboardActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
